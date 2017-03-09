@@ -1,0 +1,71 @@
+note:
+// github 默认远程库为origin
+
+
+将文件加入暂存区				git add <file>
+强制添加							add	[-f] <file>
+查看分支						git	branch [-a]
+										   包括远程分支
+创建分支 							branch <branch>
+删除分支大写D强制删除				branch [-d/-D] <branch>
+关联远程分支						branch --set-upstream-to=origin/<branch>
+同上，已废弃？？					branch --set-upstream <local branch> origin/<branch>
+检查file的是否在忽略规则中		git check-ignore -v <file>
+分支操作						git checkout
+丢弃工作区的修改					checkout -- <file>
+创建并进入新分支					checkout -b <branch>
+创建并进入新分支且关联远程分支		checkout -b <local branch> origin/<branch>
+同上 								checkout -t origin/<branch>
+进入分支							checkout <branch>
+克隆远程库						git clone <SSH addr or supported protocol>
+修改库作者名邮箱名				git commit --amend --author
+提交加入到暂存区的修改			git commit -m "common"
+设置命令						git config 
+全局设定用户名						config --global user.name "your name"
+全局设定邮箱						config --global user.email you@example.com
+全局设定变量别名					config --global alias.st status
+常用别名											alias.co checkout
+													alias.ci commit
+													alias.br branch
+													alias.unstage 'reset HEAD'
+													alias.last 'log -1'
+													alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+比较文件 						git diff <file>
+移除文件						git rm <file>
+初始化 							git init
+初始化一个空库						init --bare <simple.git>
+查询日志						git log [--graph]	[--pretty=oneline]	[--abbrev-commit]
+										树状图		缩略显示			简短的commit ID
+图形显示							log --graph --pretty=oneline --abbrev-commit
+简单显示							log [--pretty=oneline]
+合并分支						git merge <branch>
+不fastward合并分支					merge [--no-ff] -m "your commit" <branch>
+抓取分支						git pull
+push本地数据到远程库			git push [-u] 
+-u参数用于第一次关联库				push <remote repo> <local branch>
+push tag到远程库					push <remote repo> <tagname>
+提交所有标签						push <remote repo> --tags
+从远程库删除标签					push <remote repo> :refs/tags/<tagname>
+同上 								push <remote repo> --delete tag <tagname>
+删除远程分支						push <remote repo> :<branchName>
+同上 								push <remote repo> --delete <branchName>
+提交和撤回的操作历史			git reflog
+远程操作						git remote
+查看远程库							remote [-v]
+关联本地与远程分支					remote --set-upstream <local branch> <origin/branch>
+与远程库关联						remote add <name> [SSH addr or supported protocol] 
+									一个示例地址:	  [git@github.com:Chao-1412/learngit.git]
+时光穿梭机						git reset [--hard] [HEAD^]/[HEAD^^]/[HEAD~100]/[commit ID]
+取消提交到暂存区的数据				reset HEAD <file>
+查询库状态						git status
+数据暂存操作					git stash 
+列出暂存列表						stash list 
+取回暂存状态但不清空stash			stash apply [stash@{n}]
+清掉暂存							stash drop [stash@{n}]
+取出暂存状态并清空stash				stash pop [stash@{n}]
+显示所有tag						git tag [-s]
+										GPG私钥签名一个标签
+为当前分支标记tag					tag <tagname> [commit ID]
+为标签添加说明						tag -a <tagname> -m "commit" [commit ID]
+删除一个标签						tag -d <tagname>
+显示标记tag的版本信息			git show <tagname>
