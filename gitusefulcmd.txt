@@ -69,3 +69,5 @@ push tag到远程库					push <remote repo> <tagname>
 为标签添加说明						tag -a <tagname> -m "commit" [commit ID]
 删除一个标签						tag -d <tagname>
 显示标记tag的版本信息			git show <tagname>
+
+
